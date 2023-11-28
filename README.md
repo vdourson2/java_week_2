@@ -4,7 +4,7 @@ Week 2
 ## Briefing
 [Instructions](https://github.com/becodeorg/CRL-KELLER-6/blob/main/1.TRAIL/3.The-Mountain/Java/week_2/readme.md) for the exercise.
 
-### INDEX
+### Index
 
 1. Measurements trans calculation
 1. Getting unique values
@@ -14,7 +14,6 @@ Week 2
 1. Find the highest value of
 1. Check the difference of trade in 2019 and 2020 using maps and a month (hard)
 1. Write your own Stack implementation (hard)
-
 
 ---> Resources <---
 
