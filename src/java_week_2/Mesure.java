@@ -1,26 +1,46 @@
 package java_week_2;
 
-public enum Mesure {
-	M("m"), 
-	CM("cm"),
-	MM("mm");
+//This class contains a mesure of length with its value and unit
+//This class gives the possibility to convert unit from the enum type Unit
+public class Mesure {
+	private double value;
+	private Unit unit;
 	
-	private final String unity;
-	
-	private Mesure(String unity){
-		this.unity = unity; 
+	//Constructor with a digit and a unit
+	public Mesure(double value, Unit unit) {
+		this.value = value;
+		this.unit = unit;
 	}
 	
-	public String getUnity() {
-		return this.unity;
+	//Constructor with a string containing digits and characters
+	public Mesure(String stringEntry) {
+		String[] part = stringEntry.split("(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)"); 
+		this.value = Double.parseDouble(part[0]);
+		this.unit = Unit.findUnit(part[1]);
 	}
 	
-	public static Mesure findMesure(String givenMesure) {
-		for (Mesure value:values()) {
-			if (value.unity.equals(givenMesure)) {
-				return value;
-			}
+	public double getValue() {
+		return value;
+	}
+	
+	public Unit getUnit() {
+		return unit;
+	}
+	
+	public void convertToMeter() {
+		switch (unit) {
+			case M :
+				break;
+			case CM :
+				value = value/100;
+				break;
+			case MM :
+				value = value /1000;
+				break;
 		}
-		return null;
+		unit = Unit.M;
 	}
+	
+	
+	
 }

@@ -1,22 +1,25 @@
 package java_week_2;
 
+//This class contains a rectangle with its length and width.
 public class Rectangle {
-	private float length, width;
+	private Mesure length, width;
 	
-	public Rectangle(float length, float width) {
+	public Rectangle(Mesure length, Mesure width) {
 		this.length = length;
 		this.width = width;
 	}
 	
-	public float getlength() {
+	public Mesure getlength() {
 		return length;
 	}
 	
-	public float getWidth() {
+	public Mesure getWidth() {
 		return width;
 	}
 	
-	public float surface() {
-		return length * width;
+	public double surfaceInMeters() {
+		length.convertToMeter();
+		width.convertToMeter();
+		return length.getValue() * width.getValue();
 	}
 }
