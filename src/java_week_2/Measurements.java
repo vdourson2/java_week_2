@@ -14,18 +14,25 @@ public class Measurements {
 
 	public static void main(String[] args) {
 		System.out.println(Arrays.toString(args));
+		
+		//Create 2 objects Mesure with data from args
 		Mesure length, width;
 		if (args.length == 2) {
 			length = new Mesure(args[0]);
 			width = new Mesure(args[1]);
+			
+			//Create a rectangle with the two objects Mesure
+			Rectangle rectangle = new Rectangle(length, width);
+			
+			//Print the surface of the rectangle in meters
+			System.out.println("The surface in square meters is :");
+			System.out.println(rectangle.surfaceInMeters() + " m²");
 		} 
 		else {
-			length = null;
-			width = null;
+			System.out.println("You didn't enter two parameters");
+//			length = new Mesure(0,Unit.M);
+//			width = new Mesure(0,Unit.M);
 		}	
 		
-		Rectangle rectangle = new Rectangle(length, width);
-		System.out.println("The surface in square meters is :");
-		System.out.println(rectangle.surfaceInMeters() + " m²");
 	}
 }
