@@ -11,7 +11,8 @@ import java.io.InputStreamReader;
 public class Unique_values {
 
 	public static void main(String[] args) {
-		processInputFile("assets/hospital_data.csv");
+		ColumnsSets res = processInputFile("assets/effects-of-covid-19-on-trade-at-21-July-2021-provisional.csv");
+		System.out.println(res.getColumn1());
 
 	}//End main
 	
@@ -21,19 +22,21 @@ public class Unique_values {
 		//List<YourJavaItem> inputList = new ArrayList<YourJavaItem>();
 		
 		    try{
-
+		      System.out.println("try");
 		      File inputF = new File(inputFilePath);
 		      InputStream inputFS = new FileInputStream(inputF);
 		      BufferedReader br = new BufferedReader(new InputStreamReader(inputFS));
 
 		      // skip the header of the csv
-		      result = br.lines().skip(1).map(line -> line.split(","))
+		      result = br.lines()
+		    		  .skip(1)
+		    		  .map(line -> line.split(","))
 		    		  .reduce(new ColumnsSets(), (subresult, arrayLine) -> ColumnsSets.addLine(arrayLine),
 		    				  (acc1, acc2) -> ColumnsSets.addVoid());
 		      br.close();
 		    } 
 		    catch (IOException e) {
-		   
+		    	System.out.println("Loading failed" + e);
 		    }
 		
 		return result ;
