@@ -15,8 +15,9 @@ public class Filtering {
 
 	public static void main(String[] args) {
 		List<TradeData> result = processInputFile("assets/effects-of-covid-19-on-trade-at-21-July-2021-provisional.csv");
-		
-		System.out.println(result);
+		for (TradeData res:result) {
+			System.out.println(res);
+		}
 		
 
 	}//End main
@@ -34,11 +35,9 @@ public class Filtering {
 	      wantedValues = br.lines()
 	    		  .skip(1)
 	    		  .map(line -> line.split(","))
-	    		  .filter(l -> l[1].equals("2016") && l[4].equals("All"))
+	    		  .filter(l -> l[1].equals("2016") && l[4].equals("All") && !l[0].equals("Reimports"))
 	    		  .map((ar) -> {
-	    			  TradeData trLine = new TradeData();
-	    			  trLine.setDirection(ar[0]);
-	    			  trLine.setDate(ar[2]);
+	    			  TradeData trLine = new TradeData(ar);
 	    			  return trLine;
 	    		  })
 	    		  .collect(Collectors.toList());
