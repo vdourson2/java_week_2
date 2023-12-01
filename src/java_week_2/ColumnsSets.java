@@ -23,4 +23,8 @@ public class ColumnsSets {
 	public static Set<String> getColumn1(){
 		return column1;
 	}
+	
+	public static Set<String> getColumn2(){
+		return column2;
+	}
 }

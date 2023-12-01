@@ -7,12 +7,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-
+//To improve :
+//- Store class variables from ColumnsSets in an array,
+//- Write documentation
+//- Try to transform the stream but not reduce it. It's unnecessary here (try map?)
 public class Unique_values {
 
 	public static void main(String[] args) {
 		ColumnsSets res = processInputFile("assets/effects-of-covid-19-on-trade-at-21-July-2021-provisional.csv");
 		System.out.println(res.getColumn1());
+		System.out.println(res.getColumn2());
 
 	}//End main
 	
@@ -44,19 +48,4 @@ public class Unique_values {
 	
 }//End class Unique_value
 
-//	private static Function<String, Integer> mapToItem = (line) -> {
-//
-//			
-//		  String[] p = line.split(",");// a CSV has comma separated lines
-//
-//		  YourJavaItem item = new YourJavaItem();
-//
-//		  result.setItemNumber(p[0]);//<-- this is the first column in the csv file
-//		  if (p[3] != null && p[3].trim().length() > 0) {
-//		    item.setSomeProeprty(p[3]);
-//		  }
-//		  //more initialization goes here
-//
-//		  return item;
-//		}
 
