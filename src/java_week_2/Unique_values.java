@@ -8,8 +8,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 //To improve :
-//- Store class variables from ColumnsSets in an array,
+//- Store class variables from ColumnsSets in an array (with static initialization),
 //- Write documentation
+//- Try-with-ressources
 //- Try to transform the stream but not reduce it. It's unnecessary here (try map?)
 public class Unique_values {
 
@@ -23,25 +24,23 @@ public class Unique_values {
 	public static ColumnsSets processInputFile(String inputFilePath) {
 		
 		ColumnsSets result = new ColumnsSets();
-		//List<YourJavaItem> inputList = new ArrayList<YourJavaItem>();
 		
-		    try{
-		      System.out.println("try");
-		      File inputF = new File(inputFilePath);
-		      InputStream inputFS = new FileInputStream(inputF);
-		      BufferedReader br = new BufferedReader(new InputStreamReader(inputFS));
+	    try{
+	      File inputF = new File(inputFilePath);
+	      InputStream inputFS = new FileInputStream(inputF);
+	      BufferedReader br = new BufferedReader(new InputStreamReader(inputFS));
 
-		      // skip the header of the csv
-		      result = br.lines()
-		    		  .skip(1)
-		    		  .map(line -> line.split(","))
-		    		  .reduce(new ColumnsSets(), (subresult, arrayLine) -> ColumnsSets.addLine(arrayLine),
-		    				  (acc1, acc2) -> ColumnsSets.addVoid());
-		      br.close();
-		    } 
-		    catch (IOException e) {
-		    	System.out.println("Loading failed" + e);
-		    }
+	      // skip the header of the csv
+	      result = br.lines()
+	    		  .skip(1)
+	    		  .map(line -> line.split(","))
+	    		  .reduce(new ColumnsSets(), (subresult, arrayLine) -> ColumnsSets.addLine(arrayLine),
+	    				  (acc1, acc2) -> ColumnsSets.addVoid());
+	      br.close();
+	    } 
+	    catch (IOException e) {
+	    	System.out.println("Loading failed" + e);
+	    }
 		
 		return result ;
 	}
