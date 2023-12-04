@@ -55,7 +55,6 @@ public class TradeData {
 		return this.year;
 	}
 	
-	
 	public String getCountry() {
 		return this.country;
 	}
