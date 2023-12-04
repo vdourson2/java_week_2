@@ -37,20 +37,43 @@ public class TradeData {
 	}
 	
 	public void convertToEuro() {
-		if (measure.equals("$")) {
-			this.newMeasure = "€";
-			try {
-				this.valueEuro = Long.toString((long) (Long.parseLong(this.value) * 0.85));
-				this.cumulativeEuro = Long.toString((long) (Long.parseLong(this.cumulative) * 0.85));
-			}
-			catch (NumberFormatException nfe) {
-			      nfe.printStackTrace();
-			}
+		this.newMeasure = "€";
+		try {
+			this.valueEuro = Long.toString((long) (Long.parseLong(this.value) * 0.85));
+			this.cumulativeEuro = Long.toString((long) (Long.parseLong(this.cumulative) * 0.85));
+		}
+		catch (NumberFormatException nfe) {
+		      nfe.printStackTrace();
 		}
 	}
 		
+	public String getDirection() {
+		return this.direction;
+	}
+	
 	public String getYear() {
 		return this.year;
+	}
+	
+	
+	public String getCountry() {
+		return this.country;
+	}
+	
+	public String getCommodity() {
+		return this.commodity;
+	}
+	
+	public String getTransport_mode() {
+		return this.transport_mode;
+	}
+	
+	public String getValue() {
+		return this.value;
+	}
+	
+	public String getMeasure() {
+		return this.measure;
 	}
 	
 	public void setDirection(String dir) {

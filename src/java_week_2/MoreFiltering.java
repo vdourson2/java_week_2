@@ -39,7 +39,7 @@ public class MoreFiltering {
 	    		  .collect(Collectors.toList());
 	      
 	      selectedValues = allValues.stream()
-	    		  .filter(l -> l.getYear().equals("2016"))
+	    		  .filter(l -> l.getYear().equals("2016") && l.getMeasure().equals("$"))
 	    		  .map(l -> {
 	    			  TradeData convertedData = new TradeData(l);
 	    			  convertedData.convertToEuro();
