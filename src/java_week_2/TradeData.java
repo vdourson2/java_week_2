@@ -55,6 +55,11 @@ public class TradeData {
 		return this.year;
 	}
 	
+	public int getMonth() {
+		Date date = new Date(this.date);
+		return date.getMonth();
+	}
+	
 	public String getCountry() {
 		return this.country;
 	}
@@ -69,6 +74,10 @@ public class TradeData {
 	
 	public String getValue() {
 		return this.value;
+	}
+	
+	public Long getLongValue() {
+		return Long.parseLong(this.value);
 	}
 	
 	public String getMeasure() {

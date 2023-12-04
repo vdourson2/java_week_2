@@ -6,7 +6,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -48,8 +47,6 @@ public class HigestValue {
 					    		  .map(l -> Long.parseLong(l.getValue()))
 					    		  .collect(Collectors.toList());
     	
-    	
-      
     	//Use the streaming API to find the highest export value from the filtered records.
     	Optional<Long> optionalMaxValue = filteredValues.stream()
     							.max(Long::compare);
