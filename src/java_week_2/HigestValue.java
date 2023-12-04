@@ -6,7 +6,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -45,10 +47,18 @@ public class HigestValue {
 					    		  .filter(l -> l.getYear().equals("2019") && l.getCountry().equals("China") && l.getCommodity().equals("All") && l.getTransport_mode().equals("All") && l.getDirection().equals("Exports"))
 					    		  .map(l -> Long.parseLong(l.getValue()))
 					    		  .collect(Collectors.toList());
+    	
+    	
       
     	//Use the streaming API to find the highest export value from the filtered records.
     	Optional<Long> optionalMaxValue = filteredValues.stream()
     							.max(Long::compare);
+    	
+    	//Another method to sort the filtered data based on export values in descending order.
+    	Collections.sort(filteredValues);
+    	Collections.reverse(filteredValues);
+    	Long maxValue = filteredValues.get(0);
+    	System.out.println(maxValue);
 		
 		return optionalMaxValue ;
 	}
